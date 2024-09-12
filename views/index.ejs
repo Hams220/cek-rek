@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Ewallet Account</title>
+</head>
+<body>
+    <h1>Check Ewallet Account</h1>
+    <form action="/getEwalletAccount" method="POST">
+        <label for="bankCode">Bank Code:</label>
+        <input type="text" id="bankCode" name="bankCode" required>
+        <br><br>
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <% if (accountData) { %>
+        <h2>Account Information:</h2>
+        <pre><%= JSON.stringify(accountData, null, 2) %></pre>
+    <% } %>
+
+    <% if (error) { %>
+        <h2>Error:</h2>
+        <p><%= error %></p>
+    <% } %>
+</body>
+</html>
